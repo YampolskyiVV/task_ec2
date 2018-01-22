@@ -37,7 +37,7 @@ for instance in ec2.instances.all():
         response = ec2.instances.filter(InstanceIds=in_id).terminate()
 
 #Clean up AMIs older than 7 days
-ami_list = client.describe_images(Filters = [{'Name':'owner-id', 'Values' : ['725114873331']}])
+ami_list = client.describe_images(Filters = [{'Name':'owner-id', 'Values' : [my_aws_id]}])
 for i in range(0, len(ami_list)-1):
     temp_image = ami_list['Images']
     ts=temp_image[i]['CreationDate']
